@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Jefferson Smith Muñoz, Data Platform Engineer</title>
+<!-- Vista previa al compartir. Al publicar, reemplaza https://TU-SITIO por la URL real (ej. https://tuusuario.github.io) -->
+<meta name="description" content="Data Platform Engineer con 7+ años en Databricks sobre Azure, AWS y GCP. Redujo 67 % el costo de una plataforma y eliminó los cambios manuales en producción.">
+<meta property="og:type" content="profile">
+<meta property="og:title" content="Jefferson Smith Muñoz, Data Platform Engineer">
+<meta property="og:description" content="−67 % en costo de plataforma, 0 cambios manuales en producción y pipelines en 2 a 3 días con IA.">
+<meta property="og:image" content="https://TU-SITIO/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="https://TU-SITIO/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#05070A">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%2305070A'/%3E%3Crect x='11' y='11' width='10' height='10' rx='2' fill='%23F5C451'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300..800&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* ===== Colores (edita aquí). Bronce, plata y oro son las capas del lakehouse ===== */
+:root{
+  --bg:#05070A;--panel:rgba(15,21,29,.62);--ink:#E8EDF2;--mute:#7F8C99;
+  --line:rgba(148,170,190,.13);--line2:rgba(148,170,190,.24);
+  --bronze:#E09A63;--silver:#C9D4DE;--gold:#F5C451;--goldfill:#F5C451;--blue:#5BB8FF;
+  --disp:'Geist','Inter','Segoe UI',system-ui,sans-serif;--body:var(--disp);
+  --mono:'Geist Mono',ui-monospace,Menlo,Consolas,monospace;
+  color-scheme:dark;box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
+}
+html{scroll-behavior:smooth;scroll-padding-top:calc(env(safe-area-inset-top,0px) + 80px);background:var(--bg)}
+*,*::before,*::after{box-sizing:inherit}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 16.5px/1.65 var(--body);-webkit-font-smoothing:antialiased}
+body::before{content:'';position:fixed;inset:0;z-index:-1;pointer-events:none;
+  background-image:radial-gradient(rgba(148,170,190,.14) 1px,transparent 1.2px);background-size:26px 26px;
+  -webkit-mask-image:radial-gradient(ellipse 80% 60% at 50% 0%,#000,transparent 75%);mask-image:radial-gradient(ellipse 80% 60% at 50% 0%,#000,transparent 75%)}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+.wrap{max-width:1180px;margin:0 auto;padding:0 clamp(20px,5vw,56px)}
+h1,h2,h3{font-family:var(--disp);font-weight:700;letter-spacing:-.04em;margin:0}
+h2{font-size:clamp(2rem,4.6vw,3.5rem);line-height:1.02;max-width:18ch;
+  background:linear-gradient(180deg,#FFFFFF 35%,#8C99A6);-webkit-background-clip:text;background-clip:text;color:transparent}
+h3{font-size:1.15rem;letter-spacing:-.015em;font-weight:600}
+p{margin:0}
+.intro{color:var(--mute);max-width:56ch;margin-top:18px;font-size:1.06rem}
+section{padding-block:clamp(80px,10vw,140px);position:relative}
+code,.mono{font-family:var(--mono);font-size:.86em}
+code{color:var(--gold);background:rgba(245,196,81,.08);border:1px solid rgba(245,196,81,.2);padding:1px 6px;border-radius:5px}
+
+/* paneles de vidrio con luz que sigue el cursor */
+.glass{border:1px solid var(--line);border-radius:18px;
+  background:radial-gradient(500px circle at var(--mx,-999px) var(--my,-999px),rgba(245,196,81,.07),transparent 60%),var(--panel);
+  backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);box-shadow:inset 0 1px 0 rgba(255,255,255,.04)}
+.panel{padding:clamp(20px,3vw,32px)}
+
+/* barra superior */
+.top{position:sticky;top:0;z-index:10;padding-top:env(safe-area-inset-top,0px)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;height:64px;gap:20px}
+.top::before{content:'';position:absolute;inset:0;background:rgba(5,7,10,.72);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--line);z-index:-1}
+.mark{font:600 .95rem var(--mono);text-decoration:none;letter-spacing:.02em;display:flex;gap:8px;align-items:center}
+.mark::before{content:'';width:9px;height:9px;border-radius:2px;background:var(--gold);box-shadow:0 0 12px var(--gold)}
+.nav{display:flex;gap:6px;font-size:.9rem;padding:4px;border:1px solid var(--line);border-radius:999px;background:rgba(15,21,29,.5)}
+.nav a{text-decoration:none;color:var(--mute);padding:6px 14px;border-radius:999px;transition:color .2s,background .2s}
+.nav a:hover{color:var(--ink)}
+.nav a.on{color:var(--ink);background:rgba(148,170,190,.12)}
+.cta{font:600 .88rem var(--body);text-decoration:none;background:var(--gold);color:#0A0D12;padding:9px 18px;border-radius:999px;box-shadow:0 0 24px rgba(245,196,81,.35)}
+
+/* hero */
+.hero{padding-top:clamp(64px,9vw,120px);padding-bottom:0;overflow:hidden;isolation:isolate}
+.aurora{position:absolute;z-index:-1;pointer-events:none;top:-260px;left:50%;width:1300px;height:820px;transform:translateX(-50%);filter:blur(30px);
+  background:radial-gradient(closest-side at 35% 45%,rgba(245,196,81,.16),transparent),radial-gradient(closest-side at 70% 40%,rgba(91,184,255,.12),transparent)}
+.role{display:inline-flex;align-items:center;gap:10px;font:500 .85rem var(--mono);color:var(--silver);padding:7px 14px;border:1px solid var(--line2);border-radius:999px;background:rgba(15,21,29,.5)}
+.role i{width:7px;height:7px;border-radius:50%;background:var(--gold);box-shadow:0 0 10px var(--gold)}
+h1{font-size:clamp(3.2rem,10.5vw,9rem);line-height:.88;letter-spacing:-.06em;margin:26px 0 30px;font-weight:700}
+h1 span{display:block;overflow:hidden;padding-bottom:.06em}
+h1 span i{display:block;font-style:normal;animation:rise 1s cubic-bezier(.2,.8,.2,1) both;
+  background:linear-gradient(180deg,#FFFFFF 30%,#9AA6B2);-webkit-background-clip:text;background-clip:text;color:transparent}
+h1 span:nth-child(2) i{animation-delay:.12s;background-image:linear-gradient(180deg,#8C99A6 20%,#3E4A57)}
+@keyframes rise{from{transform:translateY(105%)}}
+.lede{font-size:clamp(1.12rem,1.9vw,1.4rem);line-height:1.5;max-width:42ch;color:#C5CED7}
+.flow{margin-top:clamp(48px,7vw,84px);padding:0 22px 18px;position:relative;overflow:hidden}
+.stages{display:grid;grid-template-columns:repeat(5,1fr)}
+.stage{background:none;border:0;color:var(--mute);text-align:left;padding:18px 10px 12px;font:500 .9rem var(--body);cursor:pointer;border-bottom:1px solid transparent;transition:border-color .3s}
+.stage .n{display:block;font:500 .72rem var(--mono);color:var(--mute);margin-bottom:4px}
+.stage b{display:block;font:600 1.02rem var(--disp);color:var(--c);letter-spacing:-.01em}
+.stage.on{border-bottom-color:var(--c)}
+#flow{display:block;width:100%;height:260px}
+.caption{min-height:3.4em;color:var(--mute);max-width:64ch;margin-top:12px;font-size:.98rem}
+.facts{display:grid;grid-template-columns:repeat(6,1fr);margin:18px auto 0;padding:0}
+.facts div{margin:0;padding:22px 22px 20px;border-left:1px solid var(--line)}
+.facts div:first-child{border-left:0}
+.facts dt{font:600 clamp(1.6rem,3vw,2.3rem)/1 var(--mono);letter-spacing:-.04em;font-variant-numeric:tabular-nums}
+.facts dd{margin:10px 0 0;color:var(--mute);font-size:.88rem;line-height:1.4}
+
+/* impacto */
+.cost{display:grid;grid-template-columns:1.1fr 1fr;gap:clamp(24px,4vw,48px);margin-top:56px;align-items:stretch}
+.chart{display:grid;grid-template-columns:1fr 1fr;gap:18px;height:400px;align-items:end}
+.col{height:100%;display:flex;flex-direction:column;justify-content:flex-end}
+.col .v{font:600 clamp(1.25rem,2.4vw,1.9rem)/1.1 var(--mono);letter-spacing:-.04em}
+.after .v{color:var(--gold);text-shadow:0 0 22px rgba(245,196,81,.4)}
+.col .k{color:var(--mute);font-size:.85rem;margin:4px 0 14px}
+.bar{height:100%;border-radius:10px;border:1px solid var(--line2);background:repeating-linear-gradient(135deg,rgba(148,170,190,.12) 0 2px,transparent 2px 9px)}
+.after .stack{height:100%;display:flex;flex-direction:column}
+.after .gone{flex:1;border:1px dashed rgba(245,196,81,.55);border-bottom:0;border-radius:10px 10px 0 0;display:flex;align-items:center;justify-content:center;text-align:center;padding:12px;color:var(--gold);font-weight:600;font-size:.9rem;line-height:1.35;opacity:0;transition:opacity .8s .9s;background:linear-gradient(180deg,rgba(245,196,81,.06),transparent)}
+.after .kept{height:100%;background:linear-gradient(180deg,#FFD978,#E0A928);border-radius:10px;box-shadow:0 0 40px rgba(245,196,81,.35);transition:height 1.4s cubic-bezier(.6,0,.2,1) .3s}
+.cost.in .after .kept{height:33%;border-radius:0 0 10px 10px}
+.cost.in .after .gone{opacity:1}
+.levers{list-style:none;margin:0;display:flex;flex-direction:column;justify-content:center;gap:4px}
+.levers li{padding:16px 0 16px 22px;border-top:1px solid var(--line);position:relative}
+.levers li:first-child{border-top:0}
+.levers li::before{content:'';position:absolute;left:0;top:24px;width:7px;height:7px;transform:rotate(45deg);background:var(--gold);box-shadow:0 0 10px var(--gold)}
+.levers b{display:block;font-weight:600}
+.levers span{color:var(--mute);font-size:.93rem}
+.deltas{margin-top:24px}
+.delta{display:grid;grid-template-columns:minmax(180px,1fr) 2fr 7rem;gap:12px 28px;align-items:center;padding:20px 0;border-top:1px solid var(--line)}
+.delta p{font-weight:500}
+.bars{display:grid;gap:7px}
+.bars div{display:grid;grid-template-columns:92px 1fr;gap:12px;align-items:center;font:.8rem var(--mono);color:var(--mute)}
+.bars i{display:block;height:8px;border-radius:4px;background:rgba(148,170,190,.2);width:0;transition:width 1.2s cubic-bezier(.6,0,.2,1)}
+.bars .now i{background:var(--gold);box-shadow:0 0 14px rgba(245,196,81,.55)}
+.deltas.in .bars i{width:var(--w)}
+.pct{font:600 1.55rem var(--mono);letter-spacing:-.04em;color:var(--gold);text-align:right;text-shadow:0 0 18px rgba(245,196,81,.35)}
+
+/* reglas */
+.rules{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:48px}
+.rule h3{margin-bottom:10px;font-size:1.25rem}
+.rule p{color:var(--mute)}
+.rule small{display:block;margin-top:16px;padding-top:14px;border-top:1px solid var(--line);font:.8rem/1.5 var(--mono);color:var(--silver)}
+
+/* trayectoria */
+.jobs{margin-top:56px;position:relative;padding-left:34px;display:grid;gap:16px}
+.jobs::before{content:'';position:absolute;left:6px;top:20px;bottom:20px;width:2px;border-radius:2px;background:linear-gradient(var(--bronze),var(--silver),var(--gold));opacity:.7}
+.job{display:grid;grid-template-columns:200px 1fr;gap:clamp(20px,4vw,48px);position:relative}
+.job::before{content:'';position:absolute;left:-34px;top:38px;width:14px;height:14px;border-radius:50%;background:var(--bg);border:2px solid var(--c);box-shadow:0 0 14px var(--c)}
+.when{font:600 clamp(1.3rem,2.4vw,1.8rem)/1.1 var(--mono);letter-spacing:-.04em;color:var(--c)}
+.job h3{font-size:clamp(1.25rem,2.1vw,1.55rem);letter-spacing:-.03em;font-weight:700}
+.sector{font:500 .85rem var(--mono);color:var(--c);margin:0 0 8px}
+.org{color:var(--mute);margin:6px 0 0;font-size:.95rem}
+.job ul{margin:16px 0 0;padding-left:1.1em;max-width:68ch;color:#C5CED7}
+.job li{margin:0 0 10px}
+.job li::marker{color:var(--c)}
+.job li.x{display:none}
+.job.open li.x{display:list-item}
+.more{background:none;border:1px solid var(--line2);border-radius:999px;padding:6px 14px;font:500 .82rem var(--mono);color:var(--ink);cursor:pointer;margin-top:6px}
+.more:hover{border-color:var(--c)}
+.tools{margin-top:16px;color:var(--mute);font:.8rem/1.6 var(--mono)}
+
+/* stack */
+.core{margin-top:44px;padding:18px 22px;border:1px solid rgba(245,196,81,.45);border-radius:14px;display:flex;gap:16px;flex-wrap:wrap;align-items:baseline;
+  background:linear-gradient(90deg,rgba(245,196,81,.1),rgba(245,196,81,.02));box-shadow:0 0 30px rgba(245,196,81,.08)}
+.core b{font:600 1.1rem var(--disp);color:var(--gold)}
+.core span{color:var(--silver);font-size:.93rem}
+.tablewrap{overflow-x:auto;margin-top:16px;padding:8px 24px}
+.clouds{width:100%;border-collapse:collapse;font-size:.93rem;min-width:620px}
+.clouds th,.clouds td{text-align:left;padding:14px 16px 14px 0;border-top:1px solid var(--line);vertical-align:top}
+.clouds thead th{font:500 .95rem var(--mono);color:var(--silver);border-top:0;padding-top:16px}
+.clouds tbody th{font-weight:500;color:var(--mute);width:22%}
+.clouds tbody tr:hover td,.clouds tbody tr:hover th{color:var(--ink);background:rgba(245,196,81,.05)}
+.groups{margin-top:48px;display:grid;grid-template-columns:1fr 1fr;gap:0 clamp(32px,6vw,72px)}
+.group{padding:18px 0;border-top:1px solid var(--line)}
+.group h3{font-size:1rem;margin-bottom:6px}
+.group p{color:var(--mute);font-size:.92rem}
+
+/* IA aplicada */
+.ai{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:16px}
+.ai .tag{font:500 .78rem var(--mono);color:var(--gold)}
+.ai h3{margin:10px 0;font-size:1.2rem}
+.ai p{color:var(--mute)}
+.ai small{display:block;margin-top:16px;padding-top:14px;border-top:1px solid var(--line);font:.8rem/1.5 var(--mono);color:var(--silver)}
+.rule:last-child:nth-child(odd){grid-column:1/-1}
+
+/* formación */
+.edu{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:48px}
+.edu h3{font:500 .82rem var(--mono);color:var(--gold);margin-bottom:12px;letter-spacing:0}
+.edu ul{list-style:none;margin:0;padding:0}
+.edu li{padding:12px 0;border-top:1px solid var(--line)}
+.edu li:first-child{border-top:0}
+.edu li b{display:block;font-weight:600}
+.edu li span{color:var(--mute);font-size:.9rem}
+
+/* contacto */
+.contact{overflow:hidden;isolation:isolate}
+.contact .aurora{top:50%;height:560px;transform:translate(-50%,-50%)}
+.cpanel{padding:clamp(28px,5vw,64px);text-align:center;display:flex;flex-direction:column;align-items:center}
+.contact h2{max-width:16ch}
+.contact .intro{margin-inline:auto}
+.links{display:flex;flex-wrap:wrap;gap:10px;margin-top:36px;justify-content:center}
+.links a,.links button{font:500 .95rem var(--body);text-decoration:none;padding:13px 22px;border-radius:999px;border:1px solid var(--line2);background:rgba(15,21,29,.6);color:var(--ink);cursor:pointer;transition:border-color .2s}
+.links a:hover,.links button:hover{border-color:var(--gold)}
+.links .main{background:var(--gold);border-color:var(--gold);color:#0A0D12;font-weight:600;box-shadow:0 0 28px rgba(245,196,81,.35)}
+.mail{font:500 clamp(1.1rem,3.2vw,2.2rem) var(--mono);letter-spacing:-.03em;margin-top:28px;word-break:break-all;color:var(--gold)}
+footer{color:var(--mute);font:.8rem var(--mono);padding:0 0 calc(env(safe-area-inset-bottom,0px) + 36px)}
+
+@media (max-width:900px){
+  .nav{display:none}
+  .facts{grid-template-columns:repeat(3,1fr)}
+  .facts div:nth-child(4){border-left:0}
+  .cost,.rules,.groups,.ai{grid-template-columns:1fr}
+  .job{grid-template-columns:1fr;gap:12px}
+  .edu{grid-template-columns:1fr}
+  .delta{grid-template-columns:1fr 6rem}
+  .delta .bars{grid-column:1/-1;grid-row:2}
+}
+/* llamado a la acción del inicio */
+.hero-cta{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin-top:32px}
+.status{flex-basis:100%;display:flex;gap:10px;align-items:center;color:var(--silver);font-size:.95rem;margin-bottom:6px}
+.status i{width:8px;height:8px;border-radius:50%;background:#3DDC97;box-shadow:0 0 10px #3DDC97;animation:live 2.4s ease-in-out infinite}
+@keyframes live{50%{box-shadow:0 0 2px #3DDC97}}
+.btn-main,.btn-sec{font:600 .95rem var(--body);text-decoration:none;padding:13px 22px;border-radius:999px;transition:border-color .2s,transform .2s}
+.btn-main{background:var(--gold);color:#0A0D12;box-shadow:0 0 28px rgba(245,196,81,.35)}
+.btn-main:hover{transform:translateY(-1px)}
+.btn-sec{border:1px solid var(--line2);background:rgba(15,21,29,.6);color:var(--ink);font-weight:500}
+.btn-sec:hover{border-color:var(--gold)}
+
+@media (max-width:560px){
+  .facts{grid-template-columns:1fr 1fr}
+  .facts div{border-left:0;border-top:1px solid var(--line)}
+  .facts div:nth-child(-n+2){border-top:0}
+  .flow{padding:0 12px 14px}
+  .stage{padding:12px 2px 8px}
+  .stage .n{font-size:.62rem}
+  .stage b{font-size:.78rem}
+  .chart{height:320px}
+  #flow{height:190px}
+  .jobs{padding-left:26px}
+  .job::before{left:-26px}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+@media print{.top,.flow,.links,.aurora,body::before{display:none}body{background:#fff;color:#000}h1 span i,h2{color:#000;background:none}.glass{background:none;border-color:#ccc}}
+</style>
+</head>
+<body>
+
+<header class="top"><div class="wrap">
+  <a class="mark" href="#inicio">JSM</a>
+  <nav class="nav" id="nav">
+    <a href="#impacto">Impacto</a><a href="#reglas">Cómo trabajo</a><a href="#trayectoria">Trayectoria</a><a href="#ia">IA aplicada</a><a href="#stack">Stack</a><a href="#formacion">Formación</a>
+  </nav>
+  <a class="cta" href="#contacto">Contactar</a>
+</div></header>
+
+<main>
+<section class="hero" id="inicio">
+  <div class="aurora" aria-hidden="true"></div>
+  <div class="wrap">
+    <p class="role"><i></i>Data Platform Engineer en Colombia</p>
+    <h1><span><i>Jefferson</i></span><span><i>Smith Muñoz</i></span></h1>
+    <p class="lede">Diseño, gobierno y optimizo plataformas de datos en la nube. Que cuesten menos, que se desplieguen solas y que nadie tenga que tocar producción a mano.</p>
+    <div class="hero-cta">
+      <p class="status"><i></i><span id="status"></span></p>
+      <a class="btn-main" id="cvpdf" download>Descargar CV en PDF</a>
+      <a class="btn-sec" href="#contacto">Escribirme</a>
+    </div>
+    <div class="flow glass">
+      <div class="stages" id="stages"></div>
+      <canvas id="flow" aria-hidden="true"></canvas>
+      <p class="caption" id="caption"></p>
+    </div>
+    <dl class="facts glass" id="facts"></dl>
+  </div>
+</section>
+
+<section id="impacto"><div class="wrap">
+  <h2>El costo de la plataforma bajó 67 %.</h2>
+  <p class="intro">La misma operación con un tercio del gasto mensual en Databricks, sin apagar nada de lo que el negocio usaba.</p>
+  <div class="cost" id="cost">
+    <div class="glass panel"><div class="chart">
+      <div class="col"><p class="v">USD 15.000</p><p class="k">al mes, antes</p><div class="bar"></div></div>
+      <div class="col after"><p class="v">&lt; USD 5.000</p><p class="k">al mes, después</p>
+        <div class="stack"><div class="gone">Más de USD 120.000 ahorrados al año</div><div class="kept"></div></div>
+      </div>
+    </div></div>
+    <ul class="levers glass panel" id="levers"></ul>
+  </div>
+  <div class="deltas glass panel" id="deltas"><h3 style="margin-bottom:20px">Otros antes y después</h3></div>
+</div></section>
+
+<section id="reglas"><div class="wrap">
+  <h2>Cinco reglas que aplico en cada plataforma.</h2>
+  <div class="rules" id="rules"></div>
+</div></section>
+
+<section id="trayectoria"><div class="wrap">
+  <h2>Siete años, del reporte manual al lakehouse gobernado.</h2>
+  <p class="intro">Cuatro sectores con exigencias distintas: contact center, banca, hidrocarburos y retail. En cada etapa subí un nivel, de automatizar reportes a liderar plataformas completas.</p>
+  <div class="jobs" id="jobs"></div>
+</div></section>
+
+<section id="ia"><div class="wrap">
+  <h2>La IA ya es parte de cómo construyo.</h2>
+  <p class="intro">No como un experimento aparte: está dentro de mis pipelines, mis repositorios y mis herramientas. Mi papel es orquestar los flujos de IA de punta a punta, del back al front.</p>
+  <div class="deltas glass panel" id="aidelta" style="margin-top:48px"><h3 style="margin-bottom:20px">Con IA dentro del flujo de desarrollo</h3></div>
+  <div class="ai" id="ai"></div>
+</div></section>
+
+<section id="stack"><div class="wrap">
+  <h2>El mismo patrón en tres nubes.</h2>
+  <p class="intro">Databricks es el núcleo. Alrededor, cada nube aporta su orquestación, almacenamiento y cómputo, y he trabajado con las tres.</p>
+  <div class="core"><b>Databricks</b><span>PySpark, Spark SQL, Workflows, Delta Live Tables, Unity Catalog, Asset Bundles</span></div>
+  <div class="tablewrap glass"><table class="clouds" id="clouds"></table></div>
+  <div class="groups" id="groups"></div>
+</div></section>
+
+<section id="formacion"><div class="wrap">
+  <h2>Formación</h2>
+  <div class="edu" id="edu"></div>
+</div></section>
+
+<section class="contact" id="contacto"><div class="aurora" aria-hidden="true"></div><div class="wrap"><div class="glass cpanel">
+  <h2>Hablemos de tu plataforma de datos.</h2>
+  <p class="intro">Si tu plataforma cuesta más de lo que debería o producción depende de cambios manuales, es una conversación que vale la pena.</p>
+  <p class="mail" id="mail"></p>
+  <div class="links" id="links"></div>
+</div></div></section>
+</main>
+<footer><div class="wrap">Jefferson Smith Muñoz, Data Platform Engineer</div></footer>
+
+<script>
+/* ===================== CONTENIDO EDITABLE ===================== */
+const CONTACT = {
+  email: 'Jefferson.munoz.vas@gmail.com',
+  linkedin: 'https://linkedin.com/in/jefferson-m-050815128',
+  // El PDF debe ir en la misma carpeta que esta página al publicarla
+  pdf: 'CV_Jefferson_Munoz_Data_Platform_Engineer.pdf',
+  status: 'Abierto a roles remotos de Data Platform y Data Engineering'
+};
+
+const STAGES = [
+  {k:'Fuentes', c:'--mute',   t:'20+ sistemas de origen que se incorporan por configuración, sin rediseño. Alistar una fuente nueva pasó de 15 a 3 días.'},
+  {k:'Bronce',  c:'--bronze', t:'Ingesta cruda y trazable con ETLs parametrizados, orquestados desde Data Factory, Logic Apps y Azure Functions.'},
+  {k:'Plata',   c:'--silver', t:'Datos limpios y validados. Un framework de calidad avisa en Teams en el momento en que algo falla.'},
+  {k:'Oro',     c:'--gold',   t:'Modelos de negocio gobernados en Unity Catalog, con permisos por grupo, linaje y estándares técnicos.'},
+  {k:'Negocio', c:'--ink',    t:'Más de 300 usuarios de negocio y un equipo de 20 personas de BI consumiendo datos en los que confían.'}
+];
+const FLOW_DEFAULT = 'Así fluye el lakehouse que lidero hoy: cerca de 500 tablas y unos 200 GB diarios. Toca una capa para ver qué pasa en ella.';
+
+const FACTS = [['7+','años construyendo plataformas de datos'],['3','nubes: Azure, AWS y GCP'],['4','sectores: hidrocarburos, retail, banca y BPO'],['~500','tablas gobernadas'],['~200 GB','procesados al día'],['300+','usuarios de negocio']];
+
+const LEVERS = [
+  ['Políticas de clúster y auto-terminación','Nada queda encendido sin un dueño ni un límite.'],
+  ['Cargas migradas a cómputo serverless','Donde rinde más que un job cluster dedicado.'],
+  ['Autoescalado ajustado','Cada carga usa el tamaño de máquina que de verdad necesita.'],
+  ['Monitoreo continuo del consumo','Lectura permanente de <code>system.billing.usage</code> para ver cada dólar.']
+];
+
+// [qué se midió, antes, después, valor antes, valor después, mejora]
+const DELTAS = [
+  ['Alistar una nueva fuente de ingesta','15 días','3 días',15,3,'−80 %'],
+  ['Generar reportes gerenciales','3 días','4 horas',72,4,'−94 %'],
+  ['Cambios manuales en producción','100 %','0 %',100,0,'−100 %']
+];
+
+// IA aplicada: [qué se midió, antes, después, valor antes, valor después, mejora]
+const AI_DELTA = ['Desarrollar un pipeline completo, de cero a producción','15 días','2 a 3 días',15,2.5,'−83 %'];
+// [contexto, título, descripción, herramientas]
+const AI = [
+  ['Plataforma','Servidor MCP para Databricks','Construí un servidor MCP que conecta asistentes de IA con Databricks, para trabajar sobre la plataforma directamente desde el asistente.','MCP, Databricks, Python'],
+  ['Ingeniería de software','Pull Requests revisados y documentados solos','GitHub Actions conectadas a modelos de IA que analizan cada Pull Request y generan la documentación de forma automática.','GitHub Actions, Claude, Copilot'],
+  ['Proyecto personal','Portafolio de inversión desde WhatsApp','Orquesté los flujos de IA de una herramienta que registra órdenes de compra y venta de acciones de Colombia y Estados Unidos por WhatsApp, las guarda en base de datos y alimenta dashboards de rendimiento del portafolio.','WhatsApp, base de datos, dashboards, back y front']
+];
+
+const RULES = [
+  ['Producción no se toca a mano.','Todo cambio llega por Pull Request y se despliega con Databricks Asset Bundles y Terraform. Cada release queda trazable y auditable.','Asset Bundles, Terraform, GitHub Actions, Azure DevOps'],
+  ['Gobierno desde el diseño.','Catálogos, esquemas, linaje y permisos por grupo se definen antes de la primera tabla, no cuando ya hay desorden.','Unity Catalog, Delta Lake, data contracts'],
+  ['Cada dólar tiene dueño.','El costo se revisa como parte del trabajo diario: políticas, right-sizing y elección entre serverless y job clusters.','system.billing.usage, Photon, políticas de clúster'],
+  ['La calidad avisa primero.','Las validaciones corren solas y alertan cuando ocurre el problema, no cuando el negocio reporta cifras inconsistentes.','Validaciones automáticas, alertas en Teams, observabilidad'],
+  ['La IA va dentro del flujo.','La uso para construir pipelines, revisar código y documentar. Lo que antes tomaba 15 días de desarrollo hoy toma de 2 a 3.','Servidores MCP, GitHub Actions con IA, Claude, Copilot']
+];
+
+// org: deja el nombre de la empresa si quieres mostrarlo; vacío muestra solo el sector
+const JOBS = [
+  {from:'2018', to:'2020', c:'--bronze', role:'Ingeniero de Datos Senior', org:'', sector:'Contact center y BPO, Bogotá',
+   pts:['Diseñé desde cero el área de reporting de calidad y formación, con bases T-SQL, pipelines SSIS y modelos SSAS. Los reportes gerenciales pasaron de 3 días a 4 horas.',
+        'Centralicé más de 15 indicadores en tableros de Power BI conectados a SSAS, reemplazando Excel manuales y eliminando cifras distintas entre áreas.',
+        'Automaticé la ingesta con SSIS para que la información estuviera disponible cada día sin intervención humana.'],
+   tools:'T-SQL, SSIS, SSAS, Power BI'},
+  {from:'2020', to:'2025', c:'--silver', role:'Sr Data Engineer', org:'', sector:'Sector financiero, Bogotá',
+   pts:['Diseñé y puse en producción un modelo de autogestión de Power BI para más de 2.000 usuarios sobre Microsoft Fabric, con Synapse, Data Factory, PySpark y Delta Lake.',
+        'Lideré la migración del Data Warehouse a BigQuery con particionamiento y cargas incrementales, acortando las ventanas de refresco y el costo de consulta.',
+        'Estandaricé el despliegue de ETLs y modelos con Git y Azure DevOps: versionamiento, despliegue continuo y rollback controlado en un entorno regulado.',
+        'Automaticé la sincronización entre repositorios de datos con Data Factory, liberando al equipo para trabajo de modelado y arquitectura.',
+        'Construí y mantuve ETLs críticos en IBM DataStage y SSIS sobre fuentes core, dentro de las ventanas de cierre operativo.'],
+   tools:'Microsoft Fabric, Synapse, Data Factory, BigQuery, PySpark, Delta Lake, DataStage, Azure DevOps'},
+  {from:'2025', to:'hoy', c:'--gold', role:'Sr Data Engineer / Data Platform Engineer', org:'', sector:'Sector hidrocarburos, Bogotá',
+   pts:['Lideré el lakehouse de extremo a extremo sobre Unity Catalog: ingesta, capas bronce, plata y oro y capa analítica, con 20+ fuentes, ~500 tablas y ~200 GB diarios.',
+        'Reduje el costo mensual de Databricks un 67 %, de USD 15.000 a menos de USD 5.000, con políticas de clúster, serverless, autoescalado y monitoreo de consumo.',
+        'Eliminé el 100 % de los cambios manuales en producción con Databricks Asset Bundles y revisión obligatoria por Pull Request.',
+        'Automaticé la ingesta con ETLs parametrizados: incorporar una fuente nueva pasó de 15 a 3 días.',
+        'Implementé un framework de calidad de datos con validaciones automáticas y alertas a Teams mediante Adaptive Cards.',
+        'Administro la plataforma Databricks como referente técnico interno para los equipos de datos y de Power BI.'],
+   tools:'Databricks, Unity Catalog, Asset Bundles, Terraform, Data Factory, Logic Apps, Azure Functions'},
+  {from:'En curso', to:'', c:'--gold', role:'Data Platform Engineer', org:'', sector:'Retail media, arquitectura multi-país',
+   pts:['Construyo la infraestructura como código con Terraform para Databricks y AWS, incluidos roles IAM y Redshift Serverless, en una arquitectura de datos multi-país.',
+        'Diseño roles y políticas IAM cross-account para Redshift Serverless, Lambda y EventBridge.',
+        'Implemento un datamart de retail media de punta a punta: CDC con DMS hacia S3, capa bronce en Apache Iceberg sobre Databricks y modelo dimensional para BI.'],
+   tools:'Terraform, IAM, S3, DMS, Lambda, EventBridge, Redshift Serverless, Databricks, Apache Iceberg'}
+];
+
+const CLOUDS = {
+  head:['','Azure','AWS','GCP'],
+  rows:[
+    ['Orquestación','Data Factory, Logic Apps','Glue, Lambda, SQS, EventBridge, DMS','Cloud Composer (Airflow)'],
+    ['Almacenamiento','ADLS Gen2, OneLake','S3','Cloud Storage'],
+    ['Procesamiento','Synapse, Microsoft Fabric','EMR, Glue','Dataproc'],
+    ['Warehouse','Synapse, Fabric','Redshift y Redshift Serverless','BigQuery'],
+    ['Funciones y eventos','Azure Functions','Lambda, SQS','Cloud Functions, Pub/Sub'],
+    ['Seguridad y DevOps','Key Vault, Azure DevOps','IAM cross-account, EC2','']
+  ]
+};
+
+const GROUPS = [
+  ['Gobierno y calidad de datos','Unity Catalog, Delta Lake, data contracts, validaciones automatizadas, alertas de calidad, observabilidad de pipelines'],
+  ['Infraestructura como código y CI/CD','Terraform, Databricks Asset Bundles, GitHub Actions, Azure DevOps Pipelines, revisión por Pull Request, ambientes dev, qa y prod'],
+  ['FinOps de datos','Políticas de clúster, auto-terminación, autoescalado, Photon, serverless frente a job clusters, right-sizing'],
+  ['Lenguajes y modelado','Python, SQL, T-SQL, PySpark, Kimball, star schema, SCD, arquitectura medallion, Apache Iceberg, Data Warehouse, Data Lake y Lakehouse'],
+  ['Analítica y BI','Power BI, DAX, Power Query, SSAS, Looker'],
+  ['ETL y metodologías','IBM DataStage, SSIS, DataFusion, Scrum, Jira, Confluence']
+];
+
+const EDU = [
+  ['Certificaciones',[['PL-300','Microsoft Power BI Data Analyst Associate'],['DP-900','Microsoft Azure Data Fundamentals'],['AZ-900','Microsoft Azure Fundamentals']]],
+  ['Estudios',[['Administración de Empresas Comerciales','Universidad Colegio Mayor de Cundinamarca, 2014 a 2019']]],
+  ['Idiomas',[['Español','Nativo'],['Inglés','A2 en formación continua, con lectura fluida de documentación técnica']]]
+];
+
+/* ===================== RENDER ===================== */
+const $ = s => document.querySelector(s);
+const RM = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+$('#stages').innerHTML = STAGES.map((s, i) => `<button class="stage" data-i="${i}" style="--c:var(${s.c})"><span class="n">0${i + 1}</span><b>${s.k}</b></button>`).join('');
+$('#facts').innerHTML = FACTS.map(([n, t]) => `<div><dt>${n}</dt><dd>${t}</dd></div>`).join('');
+$('#levers').innerHTML = LEVERS.map(([b, t]) => `<li><b>${b}</b><span>${t}</span></li>`).join('');
+const deltaHTML = ([q, a, b, va, vb, p]) => `
+  <div class="delta"><p>${q}</p>
+    <div class="bars"><div><span>${a}</span><i style="--w:100%"></i></div><div class="now"><span>${b}</span><i style="--w:${Math.max(vb / va * 100, vb ? 1.5 : 0)}%"></i></div></div>
+    <span class="pct">${p}</span></div>`;
+$('#deltas').insertAdjacentHTML('beforeend', DELTAS.map(deltaHTML).join(''));
+$('#aidelta').insertAdjacentHTML('beforeend', deltaHTML(AI_DELTA));
+$('#ai').innerHTML = AI.map(([g, h, t, s]) => `<article class="glass panel"><span class="tag">${g}</span><h3>${h}</h3><p>${t}</p><small>${s}</small></article>`).join('');
+$('#rules').innerHTML = RULES.map(([h, t, s]) => `<div class="rule glass panel"><h3>${h}</h3><p>${t}</p><small>${s}</small></div>`).join('');
+$('#jobs').innerHTML = JOBS.map(j => `
+  <article class="job glass panel" style="--c:var(${j.c})">
+    <p class="when">${j.to ? j.from + ' a ' + j.to : j.from}</p>
+    <div><p class="sector">${j.sector}</p><h3>${j.role}</h3>${j.org ? `<p class="org">${j.org}</p>` : ''}
+      <ul>${j.pts.map((p, i) => `<li class="${i > 2 ? 'x' : ''}">${p}</li>`).join('')}</ul>
+      ${j.pts.length > 3 ? `<button class="more">Ver ${j.pts.length - 3} logros más</button>` : ''}
+      <p class="tools">${j.tools}</p></div>
+  </article>`).join('');
+document.querySelectorAll('.more').forEach(b => b.onclick = () => {
+  const open = b.closest('.job').classList.toggle('open'), n = b.closest('.job').querySelectorAll('li.x').length;
+  b.textContent = open ? 'Ver menos' : `Ver ${n} logros más`;
+});
+$('#clouds').innerHTML = `<thead><tr>${CLOUDS.head.map(h => `<th scope="col">${h}</th>`).join('')}</tr></thead>
+  <tbody>${CLOUDS.rows.map(([k, ...v]) => `<tr><th scope="row">${k}</th>${v.map(x => `<td>${x || '<span style="color:var(--mute)">No aplica</span>'}</td>`).join('')}</tr>`).join('')}</tbody>`;
+$('#groups').innerHTML = GROUPS.map(([h, t]) => `<div class="group"><h3>${h}</h3><p>${t}</p></div>`).join('');
+$('#edu').innerHTML = EDU.map(([h, items]) => `<div class="glass panel"><h3>${h}</h3><ul>${items.map(([b, s]) => `<li><b>${b}</b><span>${s}</span></li>`).join('')}</ul></div>`).join('');
+$('#mail').textContent = CONTACT.email;
+$('#status').textContent = CONTACT.status;
+$('#cvpdf').href = CONTACT.pdf;
+$('#links').innerHTML = `<a class="main" href="mailto:${CONTACT.email}">Escribir un correo</a><a href="${CONTACT.pdf}" download>Descargar CV en PDF</a><button id="copy">Copiar correo</button>
+  <a href="${CONTACT.linkedin}" target="_blank" rel="noopener">Ver LinkedIn</a>`;
+$('#copy').onclick = async e => {
+  try { await navigator.clipboard.writeText(CONTACT.email); e.target.textContent = 'Correo copiado'; }
+  catch { getSelection().selectAllChildren($('#mail')); e.target.textContent = 'Correo seleccionado, cópialo'; }
+  setTimeout(() => e.target.textContent = 'Copiar correo', 2400);
+};
+
+// Animaciones de datos al entrar en pantalla (una sola vez)
+const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), {threshold: .35});
+['#cost', '#deltas', '#aidelta'].forEach(s => io.observe($(s)));
+
+// Navegación activa
+const navIO = new IntersectionObserver(es => es.forEach(e => {
+  if (e.isIntersecting) document.querySelectorAll('.nav a').forEach(a => a.classList.toggle('on', a.hash === '#' + e.target.id));
+}), {rootMargin: '-45% 0px -50% 0px'});
+document.querySelectorAll('main section').forEach(s => navIO.observe(s));
+
+/* ===================== FLUJO DEL LAKEHOUSE (hero) ===================== */
+// El caos de las fuentes se ordena en carriles a medida que avanza por las capas.
+const cv = $('#flow'), cx = cv.getContext('2d');
+let W, H, P = [], COL = [], active = null;
+const css = n => getComputedStyle(document.documentElement).getPropertyValue(n).trim();
+const readColors = () => { COL = STAGES.map(s => css(s.c)); COL.line = css('--line2'); };
+function size() {
+  const d = Math.min(devicePixelRatio || 1, 2), r = cv.getBoundingClientRect();
+  W = r.width; H = r.height; cv.width = W * d; cv.height = H * d; cx.setTransform(d, 0, 0, d, 0, 0);
+  P = Array.from({length: Math.max(140, Math.round(W / 2.6))}, () => ({p: Math.random(), y0: Math.random(), lane: Math.random() * 6 | 0, v: .05 + Math.random() * .04, j: Math.random() * 7}));
+}
+const ease = x => { x = Math.min(1, Math.max(0, x)); return x * x * (3 - 2 * x); };
+let last = performance.now();
+function draw(t) {
+  const dt = Math.min((t - last) / 1000, .05); last = t;
+  cx.clearRect(0, 0, W, H);
+  cx.strokeStyle = COL.line; cx.setLineDash([3, 5]); cx.beginPath();
+  for (let i = 1; i < 5; i++) { cx.moveTo(i * W / 5, 0); cx.lineTo(i * W / 5, H); }
+  cx.stroke(); cx.setLineDash([]);
+  cx.globalCompositeOperation = 'lighter';
+  for (const q of P) {
+    if (!RM) q.p += q.v * dt;
+    if (q.p > 1) { q.p = 0; q.y0 = Math.random(); q.lane = Math.random() * 6 | 0; }
+    const e = ease((q.p - .12) / .62), laneY = (q.lane + .5) / 6;
+    const y = ((q.y0 * (1 - e) + laneY * e) * .86 + .07) * H + Math.sin(t / 300 + q.j) * 5 * (1 - e);
+    const s = Math.min(4, q.p * 5 | 0);
+    cx.globalAlpha = active === null || active === s ? .85 : .12;
+    cx.fillStyle = COL[s];
+    const r = s >= 3 ? 2.2 : 1.7, len = r * (1.5 + e * 7);
+    cx.fillRect(q.p * W - len, y - r / 2, len, r);
+  }
+  cx.globalCompositeOperation = 'source-over'; cx.globalAlpha = 1;
+  if (!RM) requestAnimationFrame(draw);
+}
+const setStage = i => {
+  active = active === i ? null : i;
+  document.querySelectorAll('.stage').forEach((b, j) => { b.classList.toggle('on', j === active); b.setAttribute('aria-pressed', j === active); });
+  $('#caption').textContent = active === null ? FLOW_DEFAULT : STAGES[active].t;
+  if (RM) draw(performance.now());
+};
+document.querySelectorAll('.stage').forEach(b => { b.onclick = () => setStage(+b.dataset.i); b.onmouseenter = () => { if (active !== +b.dataset.i) setStage(+b.dataset.i); }; });
+$('#caption').textContent = FLOW_DEFAULT;
+readColors(); size();
+addEventListener('resize', () => { size(); if (RM) draw(performance.now()); });
+document.addEventListener('pointermove', e => { const g = e.target.closest && e.target.closest('.glass'); if (!g) return; const r = g.getBoundingClientRect(); g.style.setProperty('--mx', e.clientX - r.left + 'px'); g.style.setProperty('--my', e.clientY - r.top + 'px'); });
+requestAnimationFrame(draw);
+</script>
+</body>
+</html>
